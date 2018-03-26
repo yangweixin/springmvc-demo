@@ -1,11 +1,14 @@
 package top.oyoung.springmvc.entity;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * @Method: top.oyoung.springmvc.entity
  * @Desc:
  * @Author: Yang Weixin
  * @Date: 2018/3/26 10:11
  */
+@Alias("User")
 public class User {
 
     private int id ;

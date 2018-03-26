@@ -1,5 +1,6 @@
 package top.oyoung.springmvc.dao;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import top.oyoung.springmvc.entity.User;
 
@@ -14,4 +15,7 @@ public interface UserDao {
 
     @Select("select * from user where id=#{id}")
     public User getUserById(int id);
+
+    @Insert({"insert user (account,name,address) value(#{name}, #{name}, #{name})}"})
+    public int insertUser(String name);
 }

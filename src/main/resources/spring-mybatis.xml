@@ -48,4 +48,19 @@
         -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
+
+    <!-- 事务 start -->
+    <!-- 配置事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="masterDataSource" />
+    </bean>
+    <!--配置事务管理的模板-->
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager"></property>
+        <!--定义事务隔离级别,-1表示使用数据库默认级别-->
+        <property name="isolationLevelName" value="ISOLATION_DEFAULT"></property>
+        <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"></property>
+    </bean>
+
+    <!-- 事务 end -->
 </beans>

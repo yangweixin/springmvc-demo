@@ -11,14 +11,14 @@ import javax.annotation.Resource;
 @Controller
 public class TestController {
 
-    @Resource
-    private UserDao userDao;
+//    @Resource
+//    private UserDao userDao;
 
     @RequestMapping("demo")
     @ResponseBody
     public String demo(){
-        System.out.println("xml: "+ userDao.getUser());
-        System.out.println("annotation: "+ userDao.getUserById(2));
+//        System.out.println("xml: "+ userDao.getUser());
+//        System.out.println("annotation: "+ userDao.getUserById(2));
         return "hello springmvc";
     }
 }
