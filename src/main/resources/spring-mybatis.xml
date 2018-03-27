@@ -61,6 +61,5 @@
         <property name="isolationLevelName" value="ISOLATION_DEFAULT"></property>
         <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"></property>
     </bean>
-
     <!-- 事务 end -->
 </beans>
