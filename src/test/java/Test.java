@@ -1,6 +1,4 @@
-import proxy.DynamicProxy;
-import proxy.Employee;
-import proxy.Person;
+import proxy.*;
 
 import java.lang.reflect.Proxy;
 
@@ -14,11 +12,7 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Employee employee = new Employee();
-        DynamicProxy dynamicProxy = new DynamicProxy(employee);
-
-        Person employeeProxy = dynamicProxy.getProxy();
-
-        employeeProxy.say("young");
+        Book book = CGLibProxy.getInstance().getProxy(Book.class);
+        book.read();
     }
 }

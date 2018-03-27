@@ -12,25 +12,23 @@ import java.lang.reflect.Proxy;
  */
 public class DynamicProxy implements InvocationHandler {
 
-    private static Object target;
+    private Object target;
 
-    public DynamicProxy(Object target) {
+    public DynamicProxy(Object target){
         this.target = target;
     }
 
     public <T> T getProxy(){
-        return (T)Proxy.newProxyInstance(target.getClass().getClassLoader(),
-                target.getClass().getInterfaces(), this);
+        return (T)Proxy.newProxyInstance(target.getClass().getClassLoader(),target.getClass().getInterfaces(),this);
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
         before();
         Object result = method.invoke(target, args);
         after();
-
         return result;
+
     }
 
     private void before(){

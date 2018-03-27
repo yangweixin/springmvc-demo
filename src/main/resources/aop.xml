@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
+
+    <bean id="userModify" class="top.oyoung.springmvc.aop.UserModify"/>
+    <bean id="orderModify" class="top.oyoung.springmvc.aop.OrderModify"/>
+    <bean id="timeLogger" class="top.oyoung.springmvc.aop.TimeLogger"/>
+    <bean id="logger" class="top.oyoung.springmvc.aop.Logger"/>
+    
+    <aop:config>
+        <aop:aspect id="time" ref="timeLogger" order="2">
+            <aop:pointcut id="modifyMethod" expression="execution(* top.oyoung.springmvc.aop.*.update*(..))"/>
+            <aop:before method="markTime" pointcut-ref="modifyMethod"/>
+            <aop:after method="markTime" pointcut-ref="modifyMethod"/>
+        </aop:aspect>
+
+        <aop:aspect id="logger" ref="logger" order="1">
+            <aop:pointcut id="modifyMethod" expression="execution(* top.oyoung.springmvc.aop.*.update*(..))"/>
+            <aop:before method="logBefore" pointcut-ref="modifyMethod"/>
+            <aop:after method="logAfter" pointcut-ref="modifyMethod"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

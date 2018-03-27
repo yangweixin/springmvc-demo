@@ -1,6 +1,8 @@
 package top.oyoung.springmvc;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import top.oyoung.springmvc.dao.UserDao;
