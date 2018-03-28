@@ -3,7 +3,7 @@
 <mapper namespace="top.oyoung.springmvc.dao.UserDao">
 
     <select id="getUser" resultType="User">
-        select * from user limit 1
+        select * from user where id in (#{id})  and #{time}=#{time}
     </select>
 
 </mapper>

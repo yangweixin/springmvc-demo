@@ -1,4 +1,4 @@
-package proxy;
+package top.oyoung.springmvc.proxy;
 
 public class Gili implements Car{
 

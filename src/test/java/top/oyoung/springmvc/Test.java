@@ -1,6 +1,7 @@
-import proxy.*;
+package top.oyoung.springmvc;
 
-import java.lang.reflect.Proxy;
+import top.oyoung.springmvc.proxy.Book;
+import top.oyoung.springmvc.proxy.CGLibProxy;
 
 /**
  * @Method: PACKAGE_NAME
@@ -8,7 +9,7 @@ import java.lang.reflect.Proxy;
  * @Author: Yang Weixin
  * @Date: 2018/3/27 11:25
  */
-public class Test {
+public class Test{
 
     public static void main(String[] args) {
 
